@@ -1,0 +1,470 @@
+{
+	// Place your snippets for C++ here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	//
+	// You can also restrict snippets to specific files using include/exclude patterns:
+	// "Test snippet": {
+	// 	"prefix": "test",
+	// 	"body": "test('$1', () => {\n\t$0\n});",
+	// 	"include": ["**/*.test.ts", "*.spec.ts"],
+	// 	"exclude": ["**/temp/*.ts"],
+	// 	"description": "Insert test block"
+	// }
+
+	// ==========================================
+	// INPUT / OUTPUT
+	// ==========================================
+
+	"Standard Output (std::cout)": {
+		"prefix": "cout",
+		"body": ["std::cout << $1;"],
+		"description": "Insert std::cout"
+	},
+	"Standard Input (std::cin)": {
+		"prefix": "cin",
+		"body": ["std::cin >> $1;"],
+		"description": "Insert std::cin"
+	},
+	"Standard Error (std::cerr)": {
+		"prefix": "cerr",
+		"body": ["std::cerr << $1;"],
+		"description": "Insert std::cerr"
+	},
+	"Standard End Line (std::endl)": {
+		"prefix": "endl",
+		"body": ["std::endl"],
+		"description": "Insert std::endl"
+	},
+	"Getline": {
+		"prefix": "getline",
+		"body": ["std::getline(std::cin, $1);"],
+		"description": "Read a complete line"
+	},
+	"Printf": {
+		"prefix": "printf",
+		"body": ["printf(\"$1\");"],
+		"description": "C-style output"
+	},
+	"Scanf": {
+		"prefix": "scanf",
+		"body": ["scanf(\"$1\", &$2);"],
+		"description": "C-style input"
+	},
+
+	// ==========================================
+	// DATA TYPES
+	// ==========================================
+
+	"String": {
+		"prefix": "string",
+		"body": ["std::string ${1:name};"],
+		"description": "Declare a string"
+	},
+	"Integer": {
+		"prefix": "int",
+		"body": ["int ${1:variable} = ${2:0};"],
+		"description": "Declare an integer"
+	},
+	"Float": {
+		"prefix": "float",
+		"body": ["float ${1:variable} = ${2:0.0f};"],
+		"description": "Declare a float"
+	},
+	"Double": {
+		"prefix": "double",
+		"body": ["double ${1:variable} = ${2:0.0};"],
+		"description": "Declare a double"
+	},
+	"Character": {
+		"prefix": "char",
+		"body": ["char ${1:variable} = '${2:a}';"],
+		"description": "Declare a character"
+	},
+	"Boolean": {
+		"prefix": "bool",
+		"body": ["bool ${1:variable} = ${2:true};"],
+		"description": "Declare a boolean"
+	},
+	"Auto": {
+		"prefix": "auto",
+		"body": ["auto ${1:variable} = ${2:value};"],
+		"description": "Declare an auto variable"
+	},
+
+	// ==========================================
+	// CONDITIONS
+	// ==========================================
+
+	"If Statement": {
+		"prefix": "if",
+		"body": ["if (${1:condition}) {", "\t$0", "}"],
+		"description": "If statement"
+	},
+	"If Else": {
+		"prefix": "ifelse",
+		"body": ["if (${1:condition}) {", "\t$2", "} else {", "\t$0", "}"],
+		"description": "If else statement"
+	},
+	"Else If": {
+		"prefix": "elseif",
+		"body": ["else if (${1:condition}) {", "\t$0", "}"],
+		"description": "Else if statement"
+	},
+	"Switch": {
+		"prefix": "switch",
+		"body": [
+			"switch (${1:expression}) {",
+			"\tcase ${2:1}:",
+			"\t\t$3",
+			"\t\tbreak;",
+			"\tdefault:",
+			"\t\t$0",
+			"\t\tbreak;",
+			"}"
+		],
+		"description": "Switch statement"
+	},
+
+	// ==========================================
+	// LOOPS
+	// ==========================================
+
+	"For Loop": {
+		"prefix": "for",
+		"body": [
+			"for (int ${1:i} = ${2:0}; ${1:i} < ${3:n}; ${1:i}++) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Standard for loop"
+	},
+	"While Loop": {
+		"prefix": "while",
+		"body": ["while (${1:condition}) {", "\t$0", "}"],
+		"description": "While loop"
+	},
+	"Do While Loop": {
+		"prefix": "dowhile",
+		"body": ["do {", "\t$1", "} while (${2:condition});"],
+		"description": "Do while loop"
+	},
+	"Range Based For": {
+		"prefix": "forr",
+		"body": ["for (auto &${1:item} : ${2:container}) {", "\t$0", "}"],
+		"description": "Range based for loop"
+	},
+
+	// ==========================================
+	// FUNCTIONS
+	// ==========================================
+
+	"Function": {
+		"prefix": "func",
+		"body": ["${1:void} ${2:functionName}(${3:}) {", "\t$0", "}"],
+		"description": "Create a function"
+	},
+	"Main Function": {
+		"prefix": "main",
+		"body": ["int main() {", "\t$0", "\treturn 0;", "}"],
+		"description": "Main function"
+	},
+	"Return": {
+		"prefix": "return",
+		"body": ["return ${1:0};"],
+		"description": "Return statement"
+	},
+
+	// ==========================================
+	// ARRAYS / VECTORS
+	// ==========================================
+
+	"Array": {
+		"prefix": "array",
+		"body": ["int ${1:arr}[${2:5}];"],
+		"description": "Declare an integer array"
+	},
+	"Vector": {
+		"prefix": "vector",
+		"body": ["std::vector<${1:int}> ${2:arr};"],
+		"description": "Declare a vector"
+	},
+	"Vector With Values": {
+		"prefix": "vecinit",
+		"body": ["std::vector<${1:int}> ${2:arr} = {${3:1, 2, 3}};"],
+		"description": "Initialize a vector"
+	},
+	"Vector Push Back": {
+		"prefix": "push",
+		"body": ["${1:arr}.push_back(${2:value});"],
+		"description": "Add element to vector"
+	},
+	"Vector Emplace Back": {
+		"prefix": "emplace",
+		"body": ["${1:arr}.emplace_back(${2:value});"],
+		"description": "Emplace element in vector"
+	},
+
+	// ==========================================
+	// STRINGS
+	// ==========================================
+
+	"String Length": {
+		"prefix": "strlen",
+		"body": ["${1:str}.length()"],
+		"description": "Get string length"
+	},
+	"String Size": {
+		"prefix": "strsize",
+		"body": ["${1:str}.size()"],
+		"description": "Get string size"
+	},
+	"String Empty": {
+		"prefix": "strempty",
+		"body": ["${1:str}.empty()"],
+		"description": "Check if string is empty"
+	},
+	"String Append": {
+		"prefix": "strappend",
+		"body": ["${1:str}.append(${2:other});"],
+		"description": "Append a string"
+	},
+	"String Substring": {
+		"prefix": "substr",
+		"body": ["${1:str}.substr(${2:position}, ${3:length})"],
+		"description": "Extract substring"
+	},
+	"String Find": {
+		"prefix": "strfind",
+		"body": ["${1:str}.find(${2:value})"],
+		"description": "Find substring"
+	},
+	"String Compare": {
+		"prefix": "strcmp",
+		"body": ["${1:str1}.compare(${2:str2})"],
+		"description": "Compare strings"
+	},
+	"String To Integer": {
+		"prefix": "stoi",
+		"body": ["std::stoi(${1:str})"],
+		"description": "Convert string to integer"
+	},
+	"Integer To String": {
+		"prefix": "to_string",
+		"body": ["std::to_string(${1:value})"],
+		"description": "Convert value to string"
+	},
+
+	// ==========================================
+	// STL CONTAINERS
+	// ==========================================
+
+	"Map": {
+		"prefix": "map",
+		"body": ["std::map<${1:int}, ${2:int}> ${3:mp};"],
+		"description": "Declare ordered map"
+	},
+	"Unordered Map": {
+		"prefix": "umap",
+		"body": ["std::unordered_map<${1:int}, ${2:int}> ${3:mp};"],
+		"description": "Declare unordered map"
+	},
+	"Set": {
+		"prefix": "set",
+		"body": ["std::set<${1:int}> ${2:st};"],
+		"description": "Declare ordered set"
+	},
+	"Unordered Set": {
+		"prefix": "uset",
+		"body": ["std::unordered_set<${1:int}> ${2:st};"],
+		"description": "Declare unordered set"
+	},
+	"Stack": {
+		"prefix": "stack",
+		"body": ["std::stack<${1:int}> ${2:st};"],
+		"description": "Declare stack"
+	},
+	"Queue": {
+		"prefix": "queue",
+		"body": ["std::queue<${1:int}> ${2:q};"],
+		"description": "Declare queue"
+	},
+	"Deque": {
+		"prefix": "deque",
+		"body": ["std::deque<${1:int}> ${2:dq};"],
+		"description": "Declare deque"
+	},
+	"Pair": {
+		"prefix": "pair",
+		"body": ["std::pair<${1:int}, ${2:int}> ${3:p};"],
+		"description": "Declare pair"
+	},
+
+	// ==========================================
+	// STL ALGORITHMS
+	// ==========================================
+
+	"Sort": {
+		"prefix": "sort",
+		"body": ["std::sort(${1:arr}.begin(), ${1:arr}.end());"],
+		"description": "Sort in ascending order"
+	},
+	"Sort Descending": {
+		"prefix": "sortd",
+		"body": ["std::sort(${1:arr}.begin(), ${1:arr}.end(), std::greater<>());"],
+		"description": "Sort in descending order"
+	},
+	"Reverse": {
+		"prefix": "reverse",
+		"body": ["std::reverse(${1:arr}.begin(), ${1:arr}.end());"],
+		"description": "Reverse a container"
+	},
+	"Find": {
+		"prefix": "find",
+		"body": ["std::find(${1:arr}.begin(), ${1:arr}.end(), ${2:value})"],
+		"description": "Find an element"
+	},
+	"Max Element": {
+		"prefix": "maxelement",
+		"body": ["std::max_element(${1:arr}.begin(), ${1:arr}.end())"],
+		"description": "Find maximum element iterator"
+	},
+	"Min Element": {
+		"prefix": "minelement",
+		"body": ["std::min_element(${1:arr}.begin(), ${1:arr}.end())"],
+		"description": "Find minimum element iterator"
+	},
+	"Binary Search": {
+		"prefix": "binarysearch",
+		"body": [
+			"std::binary_search(${1:arr}.begin(), ${1:arr}.end(), ${2:value})"
+		],
+		"description": "Binary search in sorted range"
+	},
+
+	// ==========================================
+	// CLASSES / OOP
+	// ==========================================
+
+	"Class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:ClassName} {",
+			"private:",
+			"\t$2",
+			"public:",
+			"\t${1:ClassName}() {",
+			"\t\t$3",
+			"\t}",
+			"\t$0",
+			"};"
+		],
+		"description": "Create a class"
+	},
+	"Struct": {
+		"prefix": "struct",
+		"body": ["struct ${1:StructName} {", "\t$0", "};"],
+		"description": "Create a struct"
+	},
+	"Constructor": {
+		"prefix": "constructor",
+		"body": ["${1:ClassName}(${2:}) {", "\t$0", "}"],
+		"description": "Create constructor"
+	},
+	"Destructor": {
+		"prefix": "destructor",
+		"body": ["~${1:ClassName}() {", "\t$0", "}"],
+		"description": "Create destructor"
+	},
+	"Public Section": {
+		"prefix": "public",
+		"body": ["public:", "\t$0"],
+		"description": "Public access specifier"
+	},
+	"Private Section": {
+		"prefix": "private",
+		"body": ["private:", "\t$0"],
+		"description": "Private access specifier"
+	},
+	"Protected Section": {
+		"prefix": "protected",
+		"body": ["protected:", "\t$0"],
+		"description": "Protected access specifier"
+	},
+
+	// ==========================================
+	// POINTERS / REFERENCES
+	// ==========================================
+
+	"Pointer": {
+		"prefix": "ptr",
+		"body": ["${1:int} *${2:ptr} = ${3:nullptr};"],
+		"description": "Declare pointer"
+	},
+	"Reference": {
+		"prefix": "ref",
+		"body": ["${1:int} &${2:reference} = ${3:variable};"],
+		"description": "Declare reference"
+	},
+	"Nullptr": {
+		"prefix": "nullptr",
+		"body": ["nullptr"],
+		"description": "Insert nullptr"
+	},
+
+	// ==========================================
+	// EXCEPTION HANDLING
+	// ==========================================
+
+	"Try Catch": {
+		"prefix": "trycatch",
+		"body": [
+			"try {",
+			"\t$1",
+			"} catch (const std::exception& ${2:e}) {",
+			"\tstd::cerr << ${2:e}.what() << std::endl;",
+			"}"
+		],
+		"description": "Try catch block"
+	},
+
+	// ==========================================
+	// COMMON HEADERS
+	// ==========================================
+
+	"Include iostream": {
+		"prefix": "iostream",
+		"body": ["#include <iostream>"],
+		"description": "Include iostream"
+	},
+	"Include string": {
+		"prefix": "include_string",
+		"body": ["#include <string>"],
+		"description": "Include string"
+	},
+	"Include vector": {
+		"prefix": "include_vector",
+		"body": ["#include <vector>"],
+		"description": "Include vector"
+	},
+	"Include bits": {
+		"prefix": "bits",
+		"body": ["#include <bits/stdc++.h>"],
+		"description": "Include all common GCC headers"
+	},
+	"Include algorithm": {
+		"prefix": "include_algorithm",
+		"body": ["#include <algorithm>"],
+		"description": "Include algorithm"
+	}
+}
