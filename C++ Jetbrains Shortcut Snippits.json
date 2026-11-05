@@ -21,11 +21,9 @@
 	// 	"exclude": ["**/temp/*.ts"],
 	// 	"description": "Insert test block"
 	// }
-
 	// ==========================================
 	// INPUT / OUTPUT
 	// ==========================================
-
 	"Standard Output (std::cout)": {
 		"prefix": "cout",
 		"body": ["std::cout << $1;"],
@@ -61,11 +59,9 @@
 		"body": ["scanf(\"$1\", &$2);"],
 		"description": "C-style input"
 	},
-
 	// ==========================================
 	// DATA TYPES
 	// ==========================================
-
 	"String": {
 		"prefix": "string",
 		"body": ["std::string ${1:name};"],
@@ -101,11 +97,9 @@
 		"body": ["auto ${1:variable} = ${2:value};"],
 		"description": "Declare an auto variable"
 	},
-
 	// ==========================================
 	// CONDITIONS
 	// ==========================================
-
 	"If Statement": {
 		"prefix": "if",
 		"body": ["if (${1:condition}) {", "\t$0", "}"],
@@ -135,11 +129,9 @@
 		],
 		"description": "Switch statement"
 	},
-
 	// ==========================================
 	// LOOPS
 	// ==========================================
-
 	"For Loop": {
 		"prefix": "for",
 		"body": [
@@ -164,11 +156,9 @@
 		"body": ["for (auto &${1:item} : ${2:container}) {", "\t$0", "}"],
 		"description": "Range based for loop"
 	},
-
 	// ==========================================
 	// FUNCTIONS
 	// ==========================================
-
 	"Function": {
 		"prefix": "func",
 		"body": ["${1:void} ${2:functionName}(${3:}) {", "\t$0", "}"],
@@ -184,11 +174,9 @@
 		"body": ["return ${1:0};"],
 		"description": "Return statement"
 	},
-
 	// ==========================================
 	// ARRAYS / VECTORS
 	// ==========================================
-
 	"Array": {
 		"prefix": "array",
 		"body": ["int ${1:arr}[${2:5}];"],
@@ -214,11 +202,9 @@
 		"body": ["${1:arr}.emplace_back(${2:value});"],
 		"description": "Emplace element in vector"
 	},
-
 	// ==========================================
 	// STRINGS
 	// ==========================================
-
 	"String Length": {
 		"prefix": "strlen",
 		"body": ["${1:str}.length()"],
@@ -264,11 +250,9 @@
 		"body": ["std::to_string(${1:value})"],
 		"description": "Convert value to string"
 	},
-
 	// ==========================================
 	// STL CONTAINERS
 	// ==========================================
-
 	"Map": {
 		"prefix": "map",
 		"body": ["std::map<${1:int}, ${2:int}> ${3:mp};"],
@@ -309,11 +293,9 @@
 		"body": ["std::pair<${1:int}, ${2:int}> ${3:p};"],
 		"description": "Declare pair"
 	},
-
 	// ==========================================
 	// STL ALGORITHMS
 	// ==========================================
-
 	"Sort": {
 		"prefix": "sort",
 		"body": ["std::sort(${1:arr}.begin(), ${1:arr}.end());"],
@@ -351,11 +333,9 @@
 		],
 		"description": "Binary search in sorted range"
 	},
-
 	// ==========================================
 	// CLASSES / OOP
 	// ==========================================
-
 	"Class": {
 		"prefix": "class",
 		"body": [
@@ -401,11 +381,9 @@
 		"body": ["protected:", "\t$0"],
 		"description": "Protected access specifier"
 	},
-
 	// ==========================================
 	// POINTERS / REFERENCES
 	// ==========================================
-
 	"Pointer": {
 		"prefix": "ptr",
 		"body": ["${1:int} *${2:ptr} = ${3:nullptr};"],
@@ -421,11 +399,9 @@
 		"body": ["nullptr"],
 		"description": "Insert nullptr"
 	},
-
 	// ==========================================
 	// EXCEPTION HANDLING
 	// ==========================================
-
 	"Try Catch": {
 		"prefix": "trycatch",
 		"body": [
@@ -437,34 +413,370 @@
 		],
 		"description": "Try catch block"
 	},
-
 	// ==========================================
-	// COMMON HEADERS
+	// BASIC INPUT / OUTPUT HEADERS
 	// ==========================================
-
 	"Include iostream": {
 		"prefix": "iostream",
 		"body": ["#include <iostream>"],
-		"description": "Include iostream"
+		"description": "Input and output (cin, cout, cerr)"
 	},
+	"Include iomanip": {
+		"prefix": "iomanip",
+		"body": ["#include <iomanip>"],
+		"description": "Output formatting (setw, setprecision)"
+	},
+	"Include fstream": {
+		"prefix": "fstream",
+		"body": ["#include <fstream>"],
+		"description": "File input and output"
+	},
+	"Include sstream": {
+		"prefix": "sstream",
+		"body": ["#include <sstream>"],
+		"description": "String streams"
+	},
+	// ==========================================
+	// DATA TYPES / STRINGS
+	// ==========================================
 	"Include string": {
-		"prefix": "include_string",
+		"prefix": "incstring",
 		"body": ["#include <string>"],
-		"description": "Include string"
+		"description": "String operations"
 	},
+	"Include cstring": {
+		"prefix": "cstring",
+		"body": ["#include <cstring>"],
+		"description": "C-style string operations"
+	},
+	"Include cctype": {
+		"prefix": "cctype",
+		"body": ["#include <cctype>"],
+		"description": "Character functions"
+	},
+	"Include cstdlib": {
+		"prefix": "cstdlib",
+		"body": ["#include <cstdlib>"],
+		"description": "General utility functions"
+	},
+	"Include climits": {
+		"prefix": "climits",
+		"body": ["#include <climits>"],
+		"description": "Integer limits"
+	},
+	"Include limits": {
+		"prefix": "limits",
+		"body": ["#include <limits>"],
+		"description": "Numeric limits"
+	},
+	"Include cstdint": {
+		"prefix": "cstdint",
+		"body": ["#include <cstdint>"],
+		"description": "Fixed-width integer types"
+	},
+	// ==========================================
+	// STL CONTAINERS
+	// ==========================================
 	"Include vector": {
-		"prefix": "include_vector",
+		"prefix": "incvector",
 		"body": ["#include <vector>"],
-		"description": "Include vector"
+		"description": "Dynamic arrays"
 	},
-	"Include bits": {
+	"Include array": {
+		"prefix": "array",
+		"body": ["#include <array>"],
+		"description": "Fixed-size arrays"
+	},
+	"Include list": {
+		"prefix": "list",
+		"body": ["#include <list>"],
+		"description": "Doubly linked list"
+	},
+	"Include forward_list": {
+		"prefix": "forward_list",
+		"body": ["#include <forward_list>"],
+		"description": "Singly linked list"
+	},
+	"Include stack": {
+		"prefix": "stack",
+		"body": ["#include <stack>"],
+		"description": "Stack container"
+	},
+	"Include queue": {
+		"prefix": "queue",
+		"body": ["#include <queue>"],
+		"description": "Queue and priority_queue"
+	},
+	"Include deque": {
+		"prefix": "incdeque",
+		"body": ["#include <deque>"],
+		"description": "Double-ended queue"
+	},
+	"Include map": {
+		"prefix": "incmap",
+		"body": ["#include <map>"],
+		"description": "Ordered map and multimap"
+	},
+	"Include unordered_map": {
+		"prefix": "unordered_map",
+		"body": ["#include <unordered_map>"],
+		"description": "Hash map"
+	},
+	"Include set": {
+		"prefix": "incset",
+		"body": ["#include <set>"],
+		"description": "Ordered set and multiset"
+	},
+	"Include unordered_set": {
+		"prefix": "unordered_set",
+		"body": ["#include <unordered_set>"],
+		"description": "Hash set"
+	},
+	"Include unordered_multimap": {
+		"prefix": "unordered_multimap",
+		"body": ["#include <unordered_map>"],
+		"description": "Unordered multimap"
+	},
+	// ==========================================
+	// STL ALGORITHMS / ITERATORS
+	// ==========================================
+	"Include algorithm": {
+		"prefix": "algorithm",
+		"body": ["#include <algorithm>"],
+		"description": "Sort, reverse, find, min, max"
+	},
+	"Include iterator": {
+		"prefix": "iterator",
+		"body": ["#include <iterator>"],
+		"description": "Iterator utilities"
+	},
+	"Include numeric": {
+		"prefix": "numeric",
+		"body": ["#include <numeric>"],
+		"description": "Accumulate, gcd, iota"
+	},
+	"Include functional": {
+		"prefix": "functional",
+		"body": ["#include <functional>"],
+		"description": "Function objects and comparators"
+	},
+	"Include utility": {
+		"prefix": "utility",
+		"body": ["#include <utility>"],
+		"description": "Pair, move, swap"
+	},
+	"Include tuple": {
+		"prefix": "tuple",
+		"body": ["#include <tuple>"],
+		"description": "Tuple data structure"
+	},
+	// ==========================================
+	// MATHEMATICS
+	// ==========================================
+	"Include cmath": {
+		"prefix": "cmath",
+		"body": ["#include <cmath>"],
+		"description": "Mathematical functions"
+	},
+	"Include ctime": {
+		"prefix": "ctime",
+		"body": ["#include <ctime>"],
+		"description": "Date and time"
+	},
+	"Include random": {
+		"prefix": "random",
+		"body": ["#include <random>"],
+		"description": "Random number generation"
+	},
+	// ==========================================
+	// OOP / MEMORY MANAGEMENT
+	// ==========================================
+	"Include memory": {
+		"prefix": "memory",
+		"body": ["#include <memory>"],
+		"description": "Smart pointers and memory utilities"
+	},
+	"Include typeinfo": {
+		"prefix": "typeinfo",
+		"body": ["#include <typeinfo>"],
+		"description": "Runtime type information"
+	},
+	"Include exception": {
+		"prefix": "exception",
+		"body": ["#include <exception>"],
+		"description": "Exception handling"
+	},
+	"Include stdexcept": {
+		"prefix": "stdexcept",
+		"body": ["#include <stdexcept>"],
+		"description": "Standard exception classes"
+	},
+	// ==========================================
+	// OTHER USEFUL HEADERS
+	// ==========================================
+	"Include cassert": {
+		"prefix": "cassert",
+		"body": ["#include <cassert>"],
+		"description": "Assertions"
+	},
+	"Include cstdio": {
+		"prefix": "cstdio",
+		"body": ["#include <cstdio>"],
+		"description": "C-style input and output"
+	},
+	"Include bitset": {
+		"prefix": "bitset",
+		"body": ["#include <bitset>"],
+		"description": "Bitset operations"
+	},
+	"Include regex": {
+		"prefix": "regex",
+		"body": ["#include <regex>"],
+		"description": "Regular expressions"
+	},
+	"Include optional": {
+		"prefix": "optional",
+		"body": ["#include <optional>"],
+		"description": "Optional values (C++17)"
+	},
+	"Include variant": {
+		"prefix": "variant",
+		"body": ["#include <variant>"],
+		"description": "Type-safe union (C++17)"
+	},
+	"Include unordered containers": {
+		"prefix": "incunordered",
+		"body": ["#include <unordered_map>", "#include <unordered_set>"],
+		"description": "Include unordered map and set"
+	},
+	"Include all common GCC headers": {
 		"prefix": "bits",
 		"body": ["#include <bits/stdc++.h>"],
-		"description": "Include all common GCC headers"
+		"description": "GCC-specific all-in-one header"
 	},
-	"Include algorithm": {
-		"prefix": "include_algorithm",
-		"body": ["#include <algorithm>"],
-		"description": "Include algorithm"
+	"Output File Stream (ofstream)": {
+		"prefix": "fout",
+		"body": ["std::ofstream ${1:file}(\"${2:filename.txt}\");"],
+		"description": "Create an output file stream"
+	},
+	"Input File Stream (ifstream)": {
+		"prefix": "fin",
+		"body": ["std::ifstream ${1:file}(\"${2:filename.txt}\");"],
+		"description": "Create an input file stream"
+	},
+	"File Stream (fstream)": {
+		"prefix": "fstream",
+		"body": [
+			"std::fstream ${1:file}(\"${2:filename.txt}\", std::ios::${3:in} | std::ios::${4:out});"
+		],
+		"description": "Create a file stream"
+	},
+	"Open File": {
+		"prefix": "fopen",
+		"body": ["${1:file}.open(\"${2:filename.txt}\", std::ios::${3:out});"],
+		"description": "Open a file"
+	},
+	"Close File": {
+		"prefix": "fclose",
+		"body": ["${1:file}.close();"],
+		"description": "Close a file"
+	},
+	"Check File Open": {
+		"prefix": "fisopen",
+		"body": ["if (${1:file}.is_open()) {", "\t$0", "}"],
+		"description": "Check whether a file is open"
+	},
+	// Input / Output
+	"Standard Input": {
+		"prefix": "stdin",
+		"body": ["std::cin"],
+		"description": "Standard input"
+	},
+	"Standard Output": {
+		"prefix": "stdout",
+		"body": ["std::cout"],
+		"description": "Standard output"
+	},
+	"Standard Error": {
+		"prefix": "stderr",
+		"body": ["std::cerr"],
+		"description": "Standard error"
+	},
+	// String streams
+	"String Input Stream": {
+		"prefix": "sin",
+		"body": ["std::istringstream ${1:stream}(${2:str});"],
+		"description": "Create input string stream"
+	},
+	"String Output Stream": {
+		"prefix": "sout",
+		"body": ["std::ostringstream ${1:stream};"],
+		"description": "Create output string stream"
+	},
+	"String Stream": {
+		"prefix": "sstream",
+		"body": ["std::stringstream ${1:stream};"],
+		"description": "Create string stream"
+	},
+	// Other utilities
+	"Standard Pair": {
+		"prefix": "makepair",
+		"body": ["std::make_pair(${1:first}, ${2:second})"],
+		"description": "Create a pair"
+	},
+	"Standard Move": {
+		"prefix": "move",
+		"body": ["std::move(${1:variable})"],
+		"description": "Move an object"
+	},
+	"Standard Swap": {
+		"prefix": "swap",
+		"body": ["std::swap(${1:a}, ${2:b});"],
+		"description": "Swap two values"
+	},
+	"Standard Max": {
+		"prefix": "max",
+		"body": ["std::max(${1:a}, ${2:b})"],
+		"description": "Return maximum value"
+	},
+	"Standard Min": {
+		"prefix": "min",
+		"body": ["std::min(${1:a}, ${2:b})"],
+		"description": "Return minimum value"
+	},
+	"Standard Abs": {
+		"prefix": "abs",
+		"body": ["std::abs(${1:value})"],
+		"description": "Absolute value"
+	},
+	"Standard GCD": {
+		"prefix": "gcd",
+		"body": ["std::gcd(${1:a}, ${2:b})"],
+		"description": "Greatest common divisor"
+	},
+	"Standard Accumulate": {
+		"prefix": "accumulate",
+		"body": ["std::accumulate(${1:arr}.begin(), ${1:arr}.end(), ${2:0})"],
+		"description": "Calculate sum of elements"
+	},
+	"File Read Mode": {
+		"prefix": "iosin",
+		"body": ["std::ios::in"]
+	},
+	"File Write Mode": {
+		"prefix": "iosout",
+		"body": ["std::ios::out"]
+	},
+	"File Append Mode": {
+		"prefix": "iosapp",
+		"body": ["std::ios::app"]
+	},
+	"File Binary Mode": {
+		"prefix": "iosbinary",
+		"body": ["std::ios::binary"]
+	},
+	"File Truncate Mode": {
+		"prefix": "iostrunc",
+		"body": ["std::ios::trunc"]
 	}
 }
