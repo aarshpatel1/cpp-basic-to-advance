@@ -75,22 +75,38 @@ using namespace std;
 //     return 0;
 // }
 
+// class Base {
+//   public:
+//     int x;
+// };
+
+// class Derived : public Base {
+//   public:
+//     int y;
+// };
+
+// int main() {
+//     // Derived *d;
+//     // Base b;
+//     // d = &b;
+//     Derived d;
+//     Base *b;
+//     b = &d;
+//     return 0;
+// }
+
 class Base {
   public:
-    int x;
+    ~Base() { cout << "Base destructor\n"; }
 };
 
 class Derived : public Base {
   public:
-    int y;
+    ~Derived() { cout << "Derived destructor\n"; }
 };
 
 int main() {
-    // Derived *d;
-    // Base b;
-    // d = &b;
-    Derived d;
-    Base *b;
-    b = &d;
+    Base *ptr = new Derived();
+    delete ptr;
     return 0;
 }
